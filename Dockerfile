@@ -59,13 +59,13 @@ RUN sed s/'name="java.target" value="1.5"'/'name="java.target" value="7"'/ -i ${
 #  && cd ~/.buildozer/ \
 #  && tar -xvf crystax.tar.xz && rm ~/.buildozer/crystax.tar.xz 
 
-USER root
+#USER root
 
 COPY . .
 
-RUN time chown user /home/user/ -R && chown -R user /home/user/hostcwd
+#RUN time chown user /home/user/ -R && chown -R user /home/user/hostcwd
 
-USER ${USER}
+#USER ${USER}
 
 RUN cd Kivy && buildozer android debug || echo "Fix build hello world" && /bin/true
 
