@@ -68,7 +68,8 @@ RUN chown -R user /home/user/hostcwd
 
 USER ${USER}
 
-RUN cd Kivy && buildozer android debug || echo "Fix build hello world" && /bin/true
+RUN cd Kivy && buildozer android debug || echo "Fix build hello world" \
+   && cp -v /home/user/hostcwd/Kivy/.buildozer/android/platform/build/dists/myapp/bin/MyApplication-0.1-debug.apk ${WORK_DIR}/
 
 CMD tail -f /var/log/faillog
 
